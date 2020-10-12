@@ -3,19 +3,29 @@ package com.joye.jiang.common.base
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import com.joye.jiang.common.data.NetConstant
 import com.joye.jiang.common.sdk.AppManager
 import com.joye.jiang.common.sdk.ApplicationUtils
 import com.joye.jiang.common.sdk.RealmUtils
+import com.joye.jiang.common.sdk.RouterUtil
+import com.joye.jiang.common.sdk.http.RetrofitUtils
 
-class BaseApplication : Application(), Application.ActivityLifecycleCallbacks {
+abstract class BaseApplication : Application(), Application.ActivityLifecycleCallbacks {
+
     override fun onCreate() {
         super.onCreate()
+        RouterUtil.initRouter(this, BuildConfig.DEBUG)
         ApplicationUtils.instance.init(this)
-        RealmUtils.init(this)
+        RealmUtils.initApplication(this)
+        initHttp()
+    }
+
+    protected fun initHttp() {
+        RetrofitUtils.init(this, NetConstant.BASE_DOMAIN)
     }
 
     override fun onActivityCreated(p0: Activity, p1: Bundle?) {
-        AppManager.getAppManager().addActivity(p0)
+        AppManager.instance.addActivity(p0)
     }
 
     override fun onActivityStarted(p0: Activity) {
@@ -34,6 +44,6 @@ class BaseApplication : Application(), Application.ActivityLifecycleCallbacks {
     }
 
     override fun onActivityDestroyed(p0: Activity) {
-        AppManager.getAppManager().removeActivity(p0)
+        AppManager.instance.removeActivity(p0)
     }
 }

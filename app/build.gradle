@@ -16,6 +16,7 @@ kapt {
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
+        multiDexEnabled true
         buildConfigField "String", "BUILD_TIME", "\"${getSMBuildTime()}\""
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -73,6 +74,7 @@ dependencies {
     implementation project(':common_resource')
 
     testImplementation rootProject.ext.support.junit
+    implementation rootProject.ext.dependencies.arouter
     kapt rootProject.ext.dependencies.arouter_compiler
 }
 

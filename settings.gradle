@@ -1,4 +1,4 @@
-// Common基础层依赖：Lib、gradle依赖、数据依赖、资源依赖、sdk二次封装
+include ':common_resource'// Common基础层依赖：Lib、gradle依赖、数据依赖、资源依赖、sdk二次封装
 // lib_common:第三方lib、gradle依赖，不做二次封装
 include ':lib_common'
 // common:第三方庫二次封装、Utils、等（后期剔除）

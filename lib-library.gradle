@@ -22,14 +22,19 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        javaCompileOptions {
+       /* javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
             }
-        }
+        }*/
 
     }
-
+    // 移除lint检查的error
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'RestrictedApi'
+    }
     buildTypes {
         release {
             minifyEnabled true
@@ -67,6 +72,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation rootProject.ext.support.junit
+    implementation rootProject.ext.dependencies.arouter
     kapt rootProject.ext.dependencies.arouter_compiler
 }
 

@@ -1,6 +1,7 @@
 package com.joye.jiang.common.sdk
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,12 +10,20 @@ import androidx.annotation.Nullable
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
-import com.alibaba.fastjson.JSON
 import java.io.Serializable
 
 object RouterUtil {
 
     var postcard: Postcard? = null
+
+    @JvmStatic
+    fun initRouter(application: Application, debug: Boolean) {
+        if (debug) {
+            ARouter.openLog()
+            ARouter.openDebug()
+        }
+        ARouter.init(application)
+    }
 
     @JvmStatic
     fun inject(thiz: Any) {
