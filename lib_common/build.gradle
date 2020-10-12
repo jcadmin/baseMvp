@@ -1,0 +1,41 @@
+apply from: "../lib-library.gradle"
+
+android {
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api rootProject.ext.support["constraint-layout"]
+    //support
+    api rootProject.ext.support["support-v4"]
+    //    api rootProject.ext.support["constraint-layout"]
+    api rootProject.ext.support["design"]
+    api rootProject.ext.support["cardview"]
+    api rootProject.ext.support["kotlin"]
+    //rxjava
+    api rootProject.ext.dependencies.rxjava
+    api rootProject.ext.dependencies.rxandroid
+    //rx管理View的生命周期
+    api rootProject.ext.dependencies.rxlifecycle
+    api rootProject.ext.dependencies["rxlifecycle-components"]
+    //rxbinding
+    api rootProject.ext.dependencies.rxbinding
+    //rx权限请求
+    api rootProject.ext.dependencies.rxpermissions
+    //network
+    api rootProject.ext.dependencies.okhttp
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["adapter-rxjava"]
+    //json解析
+    api rootProject.ext.dependencies.gson
+
+    api rootProject.ext.dependencies.fastjson
+
+    //路由库（页面跳转）
+    api rootProject.ext.dependencies.arouter
+    kapt rootProject.ext.dependencies.arouter_compiler
+
+}

@@ -1,0 +1,6 @@
+apply from: "../lib-library.gradle"
+apply plugin: 'realm-android'
+
+dependencies {
+    api project(':lib_common')
+}

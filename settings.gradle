@@ -1,0 +1,16 @@
+// Common基础层依赖：Lib、gradle依赖、数据依赖、资源依赖、sdk二次封装
+// lib_common:第三方lib、gradle依赖，不做二次封装
+include ':lib_common'
+// common:第三方庫二次封装、Utils、等（后期剔除）
+//include ':common'
+// common_data:全局通用Model下沉、HttpConstant、WebSocketConstant
+// SharePreferenceConfig、Arouter 组件注册
+include ':common_data'
+// common_resource:全局通用资源下沉 values、strings、colors、drawable等
+include ':common_resource'
+// common_sdk:Utils工具类、自定义Widget
+include ':common_sdk'
+// 基类封装，
+include ':common_base'
+include ':app'
+rootProject.name = "MyBaseMvp"
