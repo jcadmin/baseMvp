@@ -76,6 +76,7 @@ dependencies {
     implementation project(':common_data')
     implementation project(':common_base')
     implementation project(':common_resource')
+    implementation project(':common_sdk_module:imageloader')
 
     testImplementation rootProject.ext.support.junit
     implementation rootProject.ext.dependencies.arouter

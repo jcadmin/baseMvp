@@ -3,4 +3,5 @@ apply from: "../lib-library.gradle"
 dependencies {
     implementation project(":common_sdk")
     implementation project(":common_data")
+    implementation project(':common_sdk_module:imageloader')
 }

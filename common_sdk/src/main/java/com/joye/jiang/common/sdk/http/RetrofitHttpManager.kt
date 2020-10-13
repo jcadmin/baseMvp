@@ -37,11 +37,8 @@ class RetrofitHttpManager private constructor() {
         val INSTANCE = RetrofitHttpManager()
     }
 
-    fun <T> create(clazz: Class<T>?): T {
-        if (clazz != null) {
-            return mRetrofit!!.create(clazz)
-        }
-        throw Exception("RetrofitHttpManager:Service isn't null!")
+    fun <T> create(clazz: Class<T>): T {
+        return mRetrofit!!.create(clazz)
     }
 
     companion object {

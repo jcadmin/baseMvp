@@ -13,4 +13,5 @@ include ':common_sdk'
 // 基类封装，
 include ':common_base'
 include ':app'
+include 'common_sdk_module:imageloader'
 rootProject.name = "MyBaseMvp"

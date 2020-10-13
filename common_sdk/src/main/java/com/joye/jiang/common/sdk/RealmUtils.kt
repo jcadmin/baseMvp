@@ -23,19 +23,13 @@ class RealmUtils private constructor() {
     }
 
     fun initUser(uid: Int) {
-        if (realmConfiguration == null) {
-            synchronized(RealmUtils::class.java) {
-                if (realmConfiguration == null) {
-                    realmConfiguration =
-                        RealmConfiguration.Builder()
-                            .name("joye_jiang_$uid.realm")
-                            .schemaVersion(1) //数据库版本
-                            .migration(migration)
-                            .deleteRealmIfMigrationNeeded()
-                            .build()
-                }
-            }
-        }
+        realmConfiguration =
+            RealmConfiguration.Builder()
+                .name("joye_jiang_$uid.realm")
+                .schemaVersion(1) //数据库版本
+                .migration(migration)
+                .deleteRealmIfMigrationNeeded()
+                .build()
     }
 
     // realm数据库版本更新
